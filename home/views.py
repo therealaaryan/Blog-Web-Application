@@ -5,12 +5,11 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.edit import CreateView
 from django.shortcuts import redirect
-from django.http import HttpResponseRedirect
 # Create your views here.
 
 class LoginView(LoginView):
     template_name = 'home/login.html'
-    
+
     def dispatch(self, request: HttpRequest, *args, **kwargs):
         if request.user.is_authenticated:
             return redirect('blog.list')
@@ -25,7 +24,7 @@ class SignUp(CreateView):
     template_name = 'home/signup.html'
     success_url = '/blogs/'
 
-    def get(self, request: HttpRequest, *args: str, **kwargs: Any) -> HttpResponse:
-        if request.is_authenticated:
+    def dispatch(self, request: HttpRequest, *args, **kwargs):
+        if request.user.is_authenticated:
             return redirect('blog.list')
-        return super().get(request, *args, **kwargs)
+        return super().dispatch(request, *args, **kwargs)
