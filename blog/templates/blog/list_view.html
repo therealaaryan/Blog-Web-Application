@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Hello There</h1>
+    <h1>Here are your blogs</h1>
     {% for blog in blogs %}
     <a href="{% url 'blog.detail' pk=blog.id %}"><li>{{blog.title}}</li></a>
     {% endfor %}
