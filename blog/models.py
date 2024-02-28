@@ -8,4 +8,4 @@ class Blog(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='blogs')
 
     def __str__(self) -> str:
-        return self.title
+        return f"{self.title} by {self.author.username}"

@@ -10,4 +10,5 @@ urlpatterns = [
     path('<int:pk>/update/', views.BlogUpdateView.as_view()),
     path('api/', api_views.BlogApiList.as_view()),
     path('api/new', api_views.BlogCreate.as_view()),
+    path('api/<int:id>/', api_views.BlogRetrieveUpdateDestroy.as_view()),
 ]
