@@ -1,5 +1,5 @@
 from django.urls import path
-from . import views
+from . import views, api_views
 
 
 urlpatterns = [
@@ -8,4 +8,6 @@ urlpatterns = [
     path('new/', views.BlogCreateView.as_view()),
     path('<int:pk>/delete/', views.BlogDeleteView.as_view(), name='blog.delete'),
     path('<int:pk>/update/', views.BlogUpdateView.as_view()),
+    path('api/', api_views.BlogApiList.as_view()),
+    path('api/new', api_views.BlogCreate.as_view()),
 ]
