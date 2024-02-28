@@ -17,7 +17,7 @@ class BlogApiList(ListAPIView):
     filter_fields = ('author', 'id')
     search_fields = ('title', 'text')
     pagination_class = BlogPagination
-
+    
 class BlogCreate(CreateAPIView):
     serializer_class = BlogSerializer
 
